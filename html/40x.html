@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>404</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 150px;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      body {
+        font: 20px Helvetica, sans-serif;
+        color: #333;
+      }
+
+      article {
+        display: block;
+        text-align: left;
+        width: 650px;
+        margin: 0 auto;
+      }
+
+      a {
+        color: #dc8100;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #333;
+        text-decoration: none;
+      }
+
+      div.text-center {
+        text-align: center;
+      }
+
+      div.cover-image {
+        width: 40%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div class="text-center">
+        <h1>Oops! 你所搜尋的頁面不存在！</h1>
+        <span id="counter">系統將於 5 秒後自動轉導至首頁</span>
+      </div>
+    </article>
+  </body>
+  <script>
+    const REDIRECT_URL = "/";
+
+    var count = 5;
+    const redirectTimer = setInterval(() => {
+      if (count > 0) {
+        console.log(count);
+        count--;
+        document.getElementById("counter").innerHTML =
+          "<span>系統將於 " + count + " 秒後自動轉導至首頁</span>";
+      } else {
+        window.location.href = REDIRECT_URL;
+        clearInterval(redirectTimer);
+      }
+    }, 1000);
+  </script>
+</html>
