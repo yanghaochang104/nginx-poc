@@ -8,3 +8,27 @@ services:
     ports:
       - "80:80"
       - "443:443"
+
+  server1:
+    image: node:latest
+    volumes:
+      - ./server1:/usr/local/server
+    ports:
+      - "10001:10001"
+    command: "node /usr/local/server/node-server.js"
+
+  server2:
+    image: node:latest
+    volumes:
+      - ./server2:/usr/local/server
+    ports:
+      - "10002:10002"
+    command: "node /usr/local/server/node-server.js"
+
+  server3:
+    image: node:latest
+    volumes:
+      - ./server3:/usr/local/server
+    ports:
+      - "10003:10003"
+    command: "node /usr/local/server/node-server.js"
